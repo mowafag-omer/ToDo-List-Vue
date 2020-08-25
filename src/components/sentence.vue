@@ -26,15 +26,15 @@ export default {
       && (this.msg = `It's time to start working you have ${all} tasks to do !!`) 
       && (this.step = 0);
 
-      eval(all / 2) > done && done != 0 
+      all / 2 > done && done != 0 
       && (this.msg = `Continue that way and you will finish soon, still have ${done}/${all} tasks`) 
       && (this.step = 1);
 
-      eval(all / 2) <= done && done != 0 
+      all / 2 <= done
       && (this.msg = `Good !! you made half or more ${done}/${all} tasks`) 
       && (this.step = 2);
 
-      all == done && done != 0 
+      all == done  
       && (this.msg = `Congratulation !! You finished all the ${done}/${all} tasks`) 
       && (this.step = 3);
     }
@@ -50,8 +50,5 @@ export default {
 </script>
 
 <style scoped>
-p{
-  text-align: center;
-  color: yellowgreen;
-}
+p{ text-align: center; }
 </style>
