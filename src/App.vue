@@ -1,19 +1,47 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <myJumbotron @update-elm="toggle" @addnew="addNewTask" v-bind:mydata="list"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import myJumbotron from './components/myJumbotron'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    myJumbotron
+  },
+  data() {
+    return {
+      list: [
+        {id: 0, name: "Ecrire le sujet", todo: true},
+        {id: 1, name: "Faire le sujet", todo: true},
+        {id: 2, name: "Vendre le sujet", todo: true},
+        {id: 3, name: "Partir en vaccances", todo: true}
+      ]
+    }
+  },
+  methods: {
+    toggle(id) {
+      this.list.forEach(element => {
+        if(element.id === id && element.todo == true){
+          element.todo = false
+        } else if(element.id === id && element.todo == false) {
+          element.todo = true
+        }
+      })
+    },
+    addNewTask(task){
+      const newTask = {
+        id: (this.list.length) + 1,
+        name: task,
+        todo: true
+      }
+      this.list.push(newTask)
+    }
   }
-}
+} 
 </script>
 
 <style>
@@ -23,6 +51,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
