@@ -145,7 +145,7 @@ export default {
 ### todoList.vue
 
 todoList component which contain sigleTodo. 
-<b>todoToggle</b> emits "update-todo" event to the parent component to change task status.
+<b>todoToggle</b> method emits "update-todo" event to the parent component to change task status.
 loop through the tasks array recived form myJumbotron component in the sigleTodo and set each task as props
 
 - template
@@ -186,7 +186,7 @@ export default {
 ### todoList.vue
 
 Showing each task individually. 
-<b>singleToggle</b> emits "update-todo" event to the parent component (todoList) to change task status.
+<b>singleToggle</b> method emits "update-todo" event to the parent component (todoList) to change task status.
 
 - template
 ```
